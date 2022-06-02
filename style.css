@@ -1,0 +1,71 @@
+:root {
+    --canvas-size: 58vmin;
+    --canvas-resolution: 16;
+}
+
+h1 {
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    height: 90%;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.commands {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+
+    flex-grow: 0;
+}
+
+.canvas {
+    flex: 0 0 var(--canvas-size);
+    /* max-width: 600px; */
+    height: var(--canvas-size);
+    /* max-height: 600px; */
+
+    display: grid;
+    grid-template-columns: repeat(var(--canvas-resolution), 1fr);
+    grid-template-rows: repeat(var(--canvas-resolution), 1fr);
+}
+
+.canvas_pixel {
+    background-color: #fff;
+    border: 0.1px solid rgb(0, 0, 0);
+}
+
+#action-erase {
+    display: none;
+}
+
+.erase-label {
+    background-color: rgb(239, 239, 239);
+    line-height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1px 6px;
+    border: 1px solid rgb(114, 114, 114);
+    border-radius: 2px;
+}
+
+.erase-label:hover {
+    background-color: rgb(230, 230, 230);
+    border-color: rgb(80, 80, 80);
+}
+
+#action-erase:checked+.erase-label {
+    background-color: rgb(149, 149, 149);
+}
+
+@media screen and (min-width: 686px) {
+    .commands {
+        flex-direction: column;
+    }
+}
