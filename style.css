@@ -29,6 +29,7 @@ h1 {
     max-width: 600px;
     height: var(--canvas-size);
     max-height: 600px;
+    border: 1px solid #000;
 
     display: grid;
     grid-template-columns: repeat(var(--canvas-resolution), 1fr);
@@ -37,7 +38,7 @@ h1 {
 
 .canvas_pixel {
     background-color: #fff;
-    border: 0.1px solid rgb(0, 0, 0);
+    /* border: 0.1px solid rgb(0, 0, 0); */
 }
 
 #action-erase {

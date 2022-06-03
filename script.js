@@ -1,6 +1,7 @@
 const colorPicker = document.getElementById("colorPicker");
 const eraser = document.getElementById("action-erase");
 const clear = document.getElementById("action-clear");
+const resolution = document.getElementById("action-resolution");
 const canvas = document.getElementById("canvas");
 
 const actionList = {
@@ -65,6 +66,12 @@ eraser.addEventListener("change", function (e) {
 
 clear.addEventListener("click", function (e) {
     pixels.forEach(pixel => pixel.style.setProperty("background-color", "#ffffff"));
+});
+
+resolution.addEventListener("change", function (e) {
+    size = e.target.value;
+    document.documentElement.style.setProperty("--canvas-resolution", e.target.value);
+    setBoard();
 });
 
 setBoard();
