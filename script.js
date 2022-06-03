@@ -1,5 +1,6 @@
 const colorPicker = document.getElementById("colorPicker");
 const eraser = document.getElementById("action-erase");
+const clear = document.getElementById("action-clear");
 const canvas = document.getElementById("canvas");
 
 const actionList = {
@@ -60,6 +61,10 @@ colorPicker.addEventListener("change", function (e) {
 
 eraser.addEventListener("change", function (e) {
     mode = this.checked ? actionList.ERASE : actionList.COLOR;
+});
+
+clear.addEventListener("click", function (e) {
+    pixels.forEach(pixel => pixel.style.setProperty("background-color", "#ffffff"));
 });
 
 setBoard();
