@@ -1,5 +1,5 @@
 :root {
-    --canvas-size: 58vmin;
+    --canvas-size: 70vmin;
     --canvas-resolution: 16;
 }
 
@@ -9,7 +9,7 @@ h1 {
 
 .container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     height: 90%;
     align-items: center;
     justify-content: center;
@@ -25,10 +25,10 @@ h1 {
 }
 
 .canvas {
-    flex: 0 0 var(--canvas-size);
-    /* max-width: 600px; */
+    min-width: var(--canvas-size);
+    max-width: 600px;
     height: var(--canvas-size);
-    /* max-height: 600px; */
+    max-height: 600px;
 
     display: grid;
     grid-template-columns: repeat(var(--canvas-resolution), 1fr);
@@ -65,6 +65,10 @@ h1 {
 }
 
 @media screen and (min-width: 686px) {
+    .container {
+        flex-direction: row;
+    }
+
     .commands {
         flex-direction: column;
     }

@@ -1,7 +1,10 @@
+const colorPicker = document.getElementById("colorPicker");
+const eraser = document.getElementById("action-erase");
+const canvas = document.getElementById("canvas");
+
 const actionList = {
     COLOR: "color",
     ERASE: "erase",
-    CLEAR: "clear"
 };
 
 var color = "#000000";
@@ -9,14 +12,16 @@ var size = 16;
 var pixels = [];
 var action = null;
 var mode = actionList.COLOR;
-const colorPicker = document.getElementById("colorPicker");
-const canvas = document.getElementById("canvas");
+
 
 function changePixel(pixel) {
     switch (action) {
         case actionList.COLOR: {
             pixel.style.setProperty("background-color", color);
             return;
+        }
+        case actionList.ERASE: {
+            pixel.style.setProperty("background-color", "#ffffff");
         }
 
         default: return;
@@ -49,6 +54,12 @@ function setBoard() {
 
 colorPicker.addEventListener("change", function (e) {
     color = e.target.value;
+    mode = actionList.COLOR;
+    eraser.checked = false;
+});
+
+eraser.addEventListener("change", function (e) {
+    mode = this.checked ? actionList.ERASE : actionList.COLOR;
 });
 
 setBoard();
