@@ -54,7 +54,7 @@ function setBoard() {
     canvas.replaceChildren(...pixels);
 }
 
-colorPicker.addEventListener("change", function (e) {
+colorPicker.addEventListener("input", function (e) {
     color = e.target.value;
     mode = actionList.COLOR;
     eraser.checked = false;
